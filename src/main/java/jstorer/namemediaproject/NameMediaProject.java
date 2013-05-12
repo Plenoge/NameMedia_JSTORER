@@ -28,17 +28,17 @@ public class NameMediaProject {
 
 	// ---------------------- Main Logic Below ---------------------
 	// ---------------------- Private Statics ----------------------
-	
+
 	private static final String xmlFile = "testData.xml";
 	private static final String persistenceUnit = "nameMediaProject";
 	private EntityManager entityManager = null;
 
 	// -------------------------- Methods --------------------------
-	
+
 	public NameMediaProject() {
 		initializeEntityManager();
 	}
-	
+
 	/**
 	 * Process an XML file using purely JAXB. This will load the entire file
 	 * into memory and is, as such, dangerous depending on the size of the XML
@@ -54,11 +54,12 @@ public class NameMediaProject {
 			JAXBContext context = JAXBContext.newInstance(DomainList.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 			DomainList domainList = (DomainList) unmarshaller.unmarshal(file);
-			
+
 			// Loop through the contents to insert to database
 			for (Domain domain : domainList.getDomainList()) {
-				System.out.println("Domain Name / Price / Status: " + domain.getName()
-						+ " / " + domain.getPrice() + " / " + domain.getStatus());
+				System.out.println("Domain Name / Price / Status: "
+						+ domain.getName() + " / " + domain.getPrice() + " / "
+						+ domain.getStatus());
 				insertRecordToDatabase(domain);
 			}
 		} catch (JAXBException e) {
@@ -85,9 +86,10 @@ public class NameMediaProject {
 		entityManager.persist(domain);
 		entityManager.getTransaction().commit();
 	}
-	
+
 	private void initializeEntityManager() {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceUnit);
+		EntityManagerFactory emf = Persistence
+				.createEntityManagerFactory(persistenceUnit);
 		entityManager = emf.createEntityManager();
 	}
 }

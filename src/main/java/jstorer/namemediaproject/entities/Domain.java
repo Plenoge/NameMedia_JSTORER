@@ -1,9 +1,6 @@
 package jstorer.namemediaproject.entities;
 
-import java.math.BigDecimal;
-
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
@@ -11,11 +8,14 @@ import javax.xml.bind.annotation.XmlElement;
  * 
  */
 @Entity
-@Table(name="DOMAINS", uniqueConstraints={@UniqueConstraint(columnNames="name")})
+@Table(name = "DOMAINS", uniqueConstraints = { @UniqueConstraint(columnNames = "name") })
 public class Domain {
-	@Id	private String name;
-	@Column	private String price;
-	@Column	private String status;
+	@Id
+	private String name;
+	@Column
+	private String price;
+	@Column
+	private String status;
 
 	public Domain() {
 	}
