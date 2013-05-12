@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<domainList>
+	<domain>
+		<name>first.test.com</name>
+		<price>32.99</price>
+		<status>Available</status>
+	</domain>
+	<domain>
+		<name>another.test.case</name>
+		<price>9999.99</price>
+		<status>Available</status>
+	</domain>
+	<domain>
+		<name>third</name>
+		<price>0.99</price>
+		<status>Unavailable</status>
+	</domain>
+</domainList>
