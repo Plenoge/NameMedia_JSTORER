@@ -47,4 +47,35 @@ public class Domain {
 		this.status = status;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+
+		final Domain other = (Domain) obj;
+		if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) {
+			return false;
+		}
+		if ((this.price == null) ? (other.price != null) : !this.price.equals(other.price)) {
+			return false;
+		}
+		if ((this.status == null) ? (other.status != null) : !this.status.equals(other.status)) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+		int prime = 31;
+		int result = prime + (this.name != null ? this.name.hashCode() : 0);
+		result += result * prime + (this.price != null ? this.price.hashCode() : 0);
+		return result * prime + (this.status != null ? this.status.hashCode() : 0);
+	}
 }
